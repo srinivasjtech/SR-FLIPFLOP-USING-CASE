@@ -37,12 +37,41 @@ The maximum possible groupings of adjacent ones are already shown in the figure.
 /* write all the steps invloved */
 
 **PROGRAM**
+```
+module Gate_7(
+    input  wire clk, rst, S, R,
+    output reg  Q
+);
+    always @(posedge clk) begin
+        if (rst)
+            Q <= 1'b0;         // Reset
+        else begin
+            case ({S,R})
+                2'b00: Q <= Q;     // No change
+                2'b01: Q <= 1'b0;  // Reset
+                2'b10: Q <= 1'b1;  // Set
+                2'b11: Q <= 1'bx;  // Invalid
+            endcase
+        end
+    end
+endmodule
 
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
-*/
+```
+/* Program for flipflops and verify its truth table in quartus using Verilog programming. */
+
+Developed by: Srinivas J
+
+RegisterNumber:25015562
 
 **RTL LOGIC FOR FLIPFLOPS**
 
+<img width="1017" height="712" alt="Screenshot 2025-11-22 213941" src="https://github.com/user-attachments/assets/44b1d5ab-4064-4387-aac5-2be092e4ee4d" />
+
+
 **TIMING DIGRAMS FOR FLIP FLOPS**
 
+<img width="1100" height="358" alt="Screenshot 2025-11-22 213957" src="https://github.com/user-attachments/assets/6e22117b-7a66-49dd-a7b3-ec10486edc49" />
+
+
 **RESULTS**
+Thus To implement  SR flipflop using verilog and validating their functionality using their functional tables is verified.
